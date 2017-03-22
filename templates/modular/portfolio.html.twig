@@ -1,0 +1,101 @@
+<script>
+    $(document).ready(function(){
+        if (window.location.hash) {
+            setTimeout(showpanel, 500)
+        }
+        function showpanel() {
+            $(window.location.hash).modal()
+        }
+        $('.owl-carousel').owlCarousel({
+            loop:true,
+            autoplay:true,
+            margin:10,
+            nav:true,
+            items:1,
+            video:true
+        })
+        $('.close-modal, .cl').click(function(){
+            window.location.hash = " "
+        });
+    });
+</script>
+
+ <section id="portfolio" class="bg-light-gray">
+     <div class="bg-wrap">
+         <div class="bg" style="background-image: url('{{ page.media[header.background_image].url }}');"></div>
+     </div>
+  <div class="container">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            {{ content }}
+        </div>
+    </div>
+    <div class="row">
+        {% for portfolio in page.header.portfolios %}
+            <div class="col-md-3 col-sm-6 portfolio-item">
+                <a href="#portfolio{{ portfolio.modalid }}" class="portfolio-link" data-toggle="modal" data-keyboard="true">
+                    <div class="portfolio-hover">
+                        <div class="portfolio-hover-content">
+                            <i class="fa fa-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    {{ page.media[portfolio.img].cropZoom(400, 289).html('','','img-responsive') }}
+                </a>
+                <div class="portfolio-caption">
+                    <h4>{{ portfolio.title }}</h4>
+                    <p class="text-muted">{{ portfolio.subtitle }}</p>
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
+</div>
+</section>
+
+
+ {% for portfolio in page.header.portfolios %}
+    <div class="portfolio-modal modal fade" id="portfolio{{ portfolio.modalid }}" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>{{ portfolio.title }}</h2>
+                            <hr class="star-primary">
+                            <div class="owl-carousel owl-theme">
+                                {% if portfolio.layout == 'video' %}
+                                    {% for img in portfolio.carousel %}
+                                        <div class="item-video"><div class="maxh"><a class="owl-video" href="{{ img }}"></a></div></div>
+                                    {% endfor %}
+                                {% else %}
+                                    {% for img in portfolio.carousel %}
+                                        <div class="item"><img src="{{ page.media[img].url }}"></div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                            <p>{{ portfolio.description }}</p>
+                            <ul class="list-inline item-details">
+                                <li>Client:
+                                    <strong>{{ portfolio.client }}</strong>
+                                </li>
+                                <li>Date:
+                                    <strong>{{ portfolio.projectdate }}</a></strong>
+                                </li>
+                                <li>Service:
+                                    <strong>{{ portfolio.category }}</strong>
+                                </li>
+                            </ul>
+                            <button type="button" class="btn btn-default cl" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}

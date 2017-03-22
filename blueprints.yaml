@@ -1,0 +1,35 @@
+name: Rizal72
+version: 1.4.0
+description: "**Rizal72** is an extension of the <a href='https://github.com/getgrav/grav-theme-agency'>Agency</a> theme: it is a clean and professional one-page theme for **Grav**"
+icon: group
+author:
+  name: Riccardo Sallusti
+  email: riccardo.sallusti@gmail.com
+  url: http://riccardosallusti.it
+homepage: http://riccardosallusti.it
+demo: http://riccardosallusti.it
+keywords: agency, theme, onepage, modern, fast, responsive, html5, css3
+bugs:
+license: MIT
+
+form:
+  validation: loose
+  fields:
+    dropdown.enabled:
+        type: toggle
+        label: Dropdown in navbar
+        highlight: 1
+        default: 0
+        options:
+          1: Enabled
+          0: Disabled
+        validate:
+          type: bool
+
+    color:
+        type: text
+        size: medium
+        label: Color
+        default: 'blue'
+        validate:
+          type: text

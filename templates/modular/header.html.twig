@@ -1,0 +1,14 @@
+<header>
+    <div class="bg-wrap">
+        <div class="bg" style="background-image: url('{{ page.media[header.background_image].url }}');"></div>
+        <div class="pattern"></div>
+    </div>
+    <div class="container">
+        <div class="intro-text">
+            {{ content }}
+            {% for button in page.header.buttons %}
+                <a class="page-scroll btn btn-xl" href="{{ button.url }}">{{ button.text }}</a>
+            {% endfor %}
+        </div>
+    </div>
+</header>
