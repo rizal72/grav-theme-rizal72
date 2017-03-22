@@ -2,7 +2,7 @@
 
 ![Rizal72](assets/readme_1.png)
 
-This Grav theme is a mix between the [Grac Agency Theme](https://github.com/getgrav/grav-theme-agency) and the [Big Picture](https://github.com/tranduyhung/grav-theme-big-picture). It adds some cool features to the original ones, like a fully working mobile menu header, and an amazing set of fixed/masked backgrounds, that work perfectly on mobile (both iOS and Android). 
+This Grav theme is a mix between the [Grav Agency Theme](https://github.com/getgrav/grav-theme-agency) and the [Big Picture](https://github.com/tranduyhung/grav-theme-big-picture). It adds some cool features to the original ones, like a fully working mobile menu header, and an amazing set of fixed/masked backgrounds, that work perfectly on mobile (both iOS and Android). 
 
 **Whatch it** in action here: [riccardosallusti.it](http://riccardosallusti.it/)
 
